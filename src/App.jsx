@@ -6,7 +6,7 @@ function App() {
     <>
       <h1 className="text-3xl font-bold">
         Hello world! <br></br>
-        Phone Collection React Router by OMAR JAFOR
+        Phone Collection React Router
       </h1>
     </>
   )
