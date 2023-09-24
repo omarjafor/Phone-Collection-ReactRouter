@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const PhoneCard = ({ phone }) => {
 
-    const { id, phone_name, brand_name, rating, price, image } = phone || {};
+    const { id, phone_name, brand_name, price, image } = phone || {};
 
     return (
         <div>
