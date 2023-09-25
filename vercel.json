@@ -1,8 +1,18 @@
 {
-    "rewrites": [
+        "source": "/",
+        "destination": "/",
+        "children": [
         {
-            "source": "/(.*)",
-            "destination": "/"
+                "source": "/",
+                "destination": "/"
+        },
+        {
+                "source": "/favorites",
+                "destination": "/"
+        },
+        {
+                "source": "/login",
+                "destination": "/"
         }
     ]
 }
