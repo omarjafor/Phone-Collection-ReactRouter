@@ -1,6 +1,5 @@
 {
-        "source": "/",
-        "children": [
+        "routes": [
         {
                 "source": "/",
                 "destination": "/"
