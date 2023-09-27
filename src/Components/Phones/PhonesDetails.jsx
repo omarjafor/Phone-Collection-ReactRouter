@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const PhonesDetails = () => {
 
-    const {id} = useParams();
-    console.log(id);
+    const phone = useLoaderData();
+    console.log(phone);
 
     return (
         <div>
-            <h1>You are seeing the phone detals of {id}</h1>
+            <h1>You are seeing the phone detals of </h1>
         </div>
     );
 };
