@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Favorites from "../Pages/Favorites/Favorites";
 import Login from "../Pages/Login/Login";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PhonesDetails from "../Components/Phones/PhonesDetails";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login></Login>
+            },
+            {
+                path: 'phones/:id',
+                element: <PhonesDetails></PhonesDetails>
             }
         ]
     }
