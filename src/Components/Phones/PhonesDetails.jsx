@@ -7,7 +7,7 @@ const PhonesDetails = () => {
 
     return (
         <div>
-            <h1>You are seeing the phone detals of </h1>
+            <h1>{phone.length}</h1>
         </div>
     );
 };
