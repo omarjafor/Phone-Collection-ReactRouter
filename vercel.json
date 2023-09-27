@@ -1,16 +1,19 @@
-{
+{       
+    
+        "src": "/",
+        "dest": "/",
         "routes": [
         {
-                "source": "/",
-                "destination": "/"
+                "src": "/",
+                "dest": "/"
         },
         {
-                "source": "/favorites",
-                "destination": "/"
+                "src": "/favorites",
+                "dest": "/"
         },
         {
-                "source": "/login",
-                "destination": "/"
+                "src": "/login",
+                "dest": "/"
         }
     ]
 }

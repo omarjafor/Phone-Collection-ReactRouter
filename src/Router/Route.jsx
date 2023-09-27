@@ -12,16 +12,16 @@ const myCreatedRoute = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/',
+                path: '',
                 element: <Home></Home>,
                 loader: () => fetch('../../public/phones.json')
             },
             {
-                path: '/favorites',
+                path: 'favorites',
                 element: <Favorites></Favorites>
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             }
         ]
