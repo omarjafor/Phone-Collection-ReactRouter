@@ -16,11 +16,11 @@ const PhonesDetails = () => {
                 </div>
                 <div className="p-6">
                     <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        <p>{brand_name} - {phone_name}</p>
+                        {phone_name}
                         <p>Price: {price} </p>
                     </h5>
                     <p className="block font-sans text-xl font-normal leading-relaxed text-inherit antialiased">
-                        Rating: {rating} 
+                        Rating: {rating} Brand: {brand_name}
                     </p>
                 </div>
                 <div className="p-6 pt-0">
