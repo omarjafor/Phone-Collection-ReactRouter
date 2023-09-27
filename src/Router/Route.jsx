@@ -15,7 +15,7 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: '',
                 element: <Home></Home>,
-                loader: () => fetch('../../public/phones.json')
+                loader: () => fetch('/phones.json')
             },
             {
                 path: 'favorites',
@@ -27,7 +27,13 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: 'phones/:id',
-                element: <PhonesDetails></PhonesDetails>
+                element: <PhonesDetails></PhonesDetails>,
+                loader: async ({params}) => {
+                    const res = await fetch('/phones.json');
+                    const data = res.json();
+                    const phone = data.find(phn => phn.id == params.id)
+                    return phone;
+                }
             }
         ]
     }
