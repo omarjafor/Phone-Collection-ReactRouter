@@ -5,7 +5,14 @@ const Login = () => {
     const auth = getAuth(app);
 
     const provider = new GoogleAuthProvider();
-    
+
+    const githubSignIn = () => {
+        console.log('Github Mama is Coming......')
+    }
+
+    const googleSignIn = () => {
+        console.log('Google mama coming....')
+    }
     return (
         <div className="flex items-center justify-center h-screen">
             <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -81,14 +88,14 @@ const Login = () => {
                     >
                         Sign In
                     </button>
-                    <button
+                    <button onClick={githubSignIn}
                         className="block w-full select-none mt-2 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
                     >
                         Sign In with GitHub
                     </button>
-                    <button
+                    <button onClick={googleSignIn}
                         className="block w-full select-none mt-2 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
