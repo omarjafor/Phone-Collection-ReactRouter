@@ -132,12 +132,15 @@ const Login = () => {
                         </a>
                     </p>
                 </div>
-                <button onClick={handleSignOut}>Sign Out</button>
+                
                 {user && <div>
                     <h3>User: {user.displayName} </h3>
                     <p>Email: {user.email} </p>
                     <img src={user.photoURL} alt="" className='inline-block'/>
                 </div>}
+                {
+                    user && <button onClick={handleSignOut}>Sign Out</button>
+                }
             </div>
         </div>
     );
