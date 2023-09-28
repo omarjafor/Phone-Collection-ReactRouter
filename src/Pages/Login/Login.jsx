@@ -1,4 +1,4 @@
-import {GoogleAuthProvider, getAuth, signInWithPopup, signOut} from 'firebase/auth';
+import {GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut} from 'firebase/auth';
 import app from '../../Firebase/firebase.init';
 import { useState } from 'react';
 
@@ -7,9 +7,17 @@ const Login = () => {
     const auth = getAuth(app);
 
     const provider = new GoogleAuthProvider();
+    const gitProvider = new GithubAuthProvider();
 
     const githubSignIn = () => {
-        console.log('Github Mama is Coming......')
+        signInWithPopup(auth, gitProvider)
+        .then( result => {
+            const loggedUser = result.user;
+            setUser(loggedUser);
+        })
+        .catch(error => {
+            console.log('error', error.message);
+        })
     }
 
     const googleSignIn = () => {
