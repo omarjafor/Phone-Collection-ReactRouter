@@ -1,4 +1,4 @@
-import {GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut} from 'firebase/auth';
+import {GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, getAuth, signInWithPopup, signOut} from 'firebase/auth';
 import app from '../../Firebase/firebase.init';
 import { useState } from 'react';
 
@@ -8,6 +8,7 @@ const Login = () => {
 
     const provider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider();
+    const twitterProvider = new TwitterAuthProvider();
 
     const githubSignIn = () => {
         signInWithPopup(auth, gitProvider)
@@ -29,6 +30,17 @@ const Login = () => {
         .catch(error => {
             console.log('error', error.message)
         })
+    }
+
+    const twitterSignIn = () => {
+        signInWithPopup(auth, twitterProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                setUser(loggedUser);
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
     const handleSignOut = () => {
@@ -122,6 +134,13 @@ const Login = () => {
                         data-ripple-light="true"
                     >
                         Sign In with GitHub
+                    </button>
+                    <button onClick={twitterSignIn}
+                        className="block w-full select-none mt-2 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        type="button"
+                        data-ripple-light="true"
+                    >
+                        Sign In with Twitter
                     </button>
                     <button onClick={googleSignIn}
                         className="block w-full select-none mt-2 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
