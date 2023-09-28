@@ -1,7 +1,9 @@
-import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
+import {GoogleAuthProvider, getAuth, signInWithPopup, signOut} from 'firebase/auth';
 import app from '../../Firebase/firebase.init';
+import { useState } from 'react';
 
 const Login = () => {
+    const [user, setUser] = useState(null);
     const auth = getAuth(app);
 
     const provider = new GoogleAuthProvider();
@@ -13,11 +15,22 @@ const Login = () => {
     const googleSignIn = () => {
         signInWithPopup(auth, provider)
         .then( result => {
-            const user = result.user;
-            console.log(user);
+            const loggedUser = result.user;
+            setUser(loggedUser);
         })
         .catch(error => {
             console.log('error', error.message)
+        })
+    }
+
+    const handleSignOut = () => {
+        signOut(auth)
+        .then(result => {
+            console.log(result);
+            setUser(null);
+        })
+        .catch( err => {
+            console.log(err);
         })
     }
     return (
@@ -119,6 +132,12 @@ const Login = () => {
                         </a>
                     </p>
                 </div>
+                <button onClick={handleSignOut}>Sign Out</button>
+                {user && <div>
+                    <h3>User: {user.displayName} </h3>
+                    <p>Email: {user.email} </p>
+                    <img src={user.photoURL} alt="" className='inline-block'/>
+                </div>}
             </div>
         </div>
     );
